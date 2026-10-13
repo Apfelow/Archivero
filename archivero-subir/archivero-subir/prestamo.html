@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestamos de documentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Botón flotante para abrir el menú lateral -->
+<button class="menu-toggle-btn" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+<!-- Fondo oscuro difuminado al abrir el menú -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Menú Lateral (Sidebar Flotante) -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="user-profile-placeholder">
+            <span class="user-icon">👤</span>
+            <span class="user-placeholder-text">Usuario del Sistema</span>
+        </div>
+        <button class="close-sidebar-btn" id="closeMenu">←</button>
+    </div>
+
+    <div class="sidebar-nav">
+        <!-- Sección Roles -->
+        <div class="nav-section">
+            <div class="nav-section-title">Roles <span class="arrow">▲</span></div>
+            <ul class="nav-sublist">
+                <li><a href="index.html">Registro de roles</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección Usuarios -->
+        <div class="nav-section">
+            <div class="nav-section-title">Usuarios <span class="arrow">▲</span></div>
+            <ul class="nav-sublist">
+                <li><a href="#">Registro de usuarios</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección Trabajadores -->
+        <div class="nav-section">
+            <div class="nav-section-title">Trabajadores <span class="arrow">▲</span></div>
+            <ul class="nav-sublist">
+                <li><a href="#">Registro de trabajadores</a></li>
+                <li><a href="#">Consulta y reporte</a></li>
+            </ul>
+        </div>
+
+        <!-- Sección Documentos -->
+        <div class="nav-section">
+            <div class="nav-section-title">Documentos <span class="arrow">▲</span></div>
+            <ul class="nav-sublist">
+                <li><a href="#">Consulta y reporte</a></li>
+                <li><a href="#">Registro documentos</a></li>
+                <li><a href="#">Tipos de documentos</a></li>
+                <li><a href="prestamo.html">Préstamos</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sidebar-footer">
+        <button class="btn-cerrar-sesion">Cerrar sesión</button>
+    </div>
+</aside>
+    <div class="main-container">
+        <h1>Prestamos de documentos</h1>
+        <p class="subtitle">Gestion y registro de documentos</p>
+
+        <!-- Formulario -->
+        <div class="form-card">
+            <h2>Registrar prestamo</h2>
+            <form id="prestamoForm">
+                <input type="hidden" id="idPrestamo" value="">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="solicitante">Solicitante (Usuario)</label>
+                        <select id="solicitante" name="solicitante" required>
+                            <option value="">Seleccione un usuario...</option>
+                            <!-- Se llena dinámicamente con la BD -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="documentoMatricula">Buscar por documento / Expediente</label>
+                        <select id="documentoMatricula" name="documentoMatricula" required>
+                            <option value="">Seleccione un documento...</option>
+                            <!-- Se llena dinámicamente con la BD -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fechaPrestamo">Fecha de prestamo</label>
+                        <input type="date" id="fechaPrestamo" name="fechaPrestamo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaEntrega">Fecha limite a entregar</label>
+                        <input type="date" id="fechaEntrega" name="fechaEntrega" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cancel" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-registrar" id="btnRegistrar">Registrar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Listado de Documentos / Prestamos -->
+        <div class="table-card">
+            <div class="table-header-title">LISTADO DE DOCUMENTOS</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expediente</th>
+                            <th>Trabajador</th>
+                            <th>Fecha prestamo</th>
+                            <th>Fecha entrega</th>
+                            <th>Estatus</th>
+                            <th>Solicitante</th>
+                            <th style="text-align: center;">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prestamosTableBody">
+                        <!-- Inicialmente vacío -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="prestamo.js"></script>
+</body>
+</html>
