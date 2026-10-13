@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Con esta línea se trae TODO el diseño (colores, botones, tablas) -->
+  <!-- con este se traen el estilo con css -->
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
@@ -19,7 +19,6 @@
 
     <h2 class="subtitulo-pantalla">FORMULARIO DE USUARIO (Nuevo/Editar)</h2>
 
-    <!-- ========== FORMULARIO ========== -->
     <section class="tarjeta">
       <form id="form-usuario" novalidate>
         <div class="formulario-grid">
@@ -46,7 +45,7 @@
             <label for="password">Contraseña <span class="obligatorio">*</span></label>
             <div class="input-con-icono">
               <input class="input" type="password" id="password" autocomplete="new-password">
-              <!-- el icono lo pone main.js -->
+              <!--para el icono -->
               <button class="icono-btn" type="button" data-ver-password="password" aria-label="Mostrar u ocultar contraseña"></button>
             </div>
             <span class="mensaje-error" id="error-password"></span>
@@ -73,7 +72,7 @@
       </form>
     </section>
 
-    <!-- ========== LISTADO ========== -->
+    <!--lista de registro -->
     <section class="tarjeta">
       <div class="listado-encabezado">
         <span class="listado-titulo">LISTADO DE USUARIOS</span>
@@ -93,7 +92,7 @@
             <th class="col-acciones">Edit</th>
           </tr>
         </thead>
-        <!-- las filas las genera usuarios.js -->
+        <!-- formato de tabla -->
         <tbody id="tabla-usuarios"></tbody>
       </table>
     </section>
