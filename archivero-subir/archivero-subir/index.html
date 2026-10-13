@@ -1,12 +1,114 @@
-<!-- index.html (raíz del repo): manda a la página principal del frontend -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=frontend/index.html">
-  <title>Archivero - Sistema de Gestión Digital de Archivos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de Trabajadores</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="frontend/index.html">Entrar al sistema</a>
+  <main class="panel">
+    <h1>Gestión de Trabajadores</h1>
+
+    <!-- FORMULARIO -->
+    <section class="card" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">FORMULARIO DE TRABAJOS (<span id="modo">Nuevo</span>)</h2>
+
+      <form id="form" novalidate>
+        <div class="grid">
+          <div class="campo">
+            <label for="nombre">Nombre(s) <span class="req">*</span></label>
+            <input id="nombre" type="text" autocomplete="off">
+            <small class="error" id="err-nombre"></small>
+          </div>
+
+          <div class="campo">
+            <label for="apPaterno">Apellido paterno <span class="req">*</span></label>
+            <input id="apPaterno" type="text" autocomplete="off">
+            <small class="error" id="err-apPaterno"></small>
+          </div>
+
+          <div class="campo">
+            <label for="apMaterno">Apellido materno</label>
+            <input id="apMaterno" type="text" autocomplete="off">
+          </div>
+
+          <div class="campo">
+            <label for="matricula">Matrícula <span class="req">*</span></label>
+            <input id="matricula" type="text" inputmode="numeric" maxlength="10" autocomplete="off">
+            <small class="error" id="err-matricula"></small>
+          </div>
+
+          <div class="campo">
+            <label for="departamento">Departamento <span class="req">*</span></label>
+            <select id="departamento">
+              <option value="">Seleccionar</option>
+              <option>Sistemas</option>
+              <option>Recursos Humanos</option>
+              <option>Contabilidad</option>
+              <option>Mantenimiento</option>
+              <option>Producción</option>
+            </select>
+            <small class="error" id="err-departamento"></small>
+          </div>
+
+          <div class="campo">
+            <label for="fechaIngreso">Fecha ingreso <span class="req">*</span></label>
+            <input id="fechaIngreso" type="date">
+            <small class="error" id="err-fechaIngreso"></small>
+          </div>
+
+          <div class="campo">
+            <label for="estatus">Estatus <span class="req">*</span></label>
+            <select id="estatus">
+              <option value="">Seleccionar</option>
+              <option>Activo</option>
+              <option>Inactivo</option>
+            </select>
+            <small class="error" id="err-estatus"></small>
+          </div>
+
+          <div class="acciones">
+            <button type="button" id="btn-cancelar" class="btn btn-gris">Cancelar</button>
+            <button type="button" id="btn-limpiar" class="btn btn-gris-claro">Limpiar</button>
+            <button type="submit" id="btn-guardar" class="btn btn-azul">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- LISTADO -->
+    <section class="card" aria-labelledby="titulo-lista">
+      <div class="lista-encabezado">
+        <h2 id="titulo-lista">LISTADO DE TRABAJADORES</h2>
+        <span class="conteo" id="conteo" aria-live="polite"></span>
+        <div class="busqueda">
+          <input id="filtro" type="search" placeholder="Nombre, matrícula o departamento" aria-label="Buscar trabajador">
+          <button type="button" id="btn-buscar" class="btn btn-gris-claro">Buscar</button>
+        </div>
+      </div>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Matrícula</th>
+              <th>Departamento</th>
+              <th>Fecha ingreso</th>
+              <th>Estatus</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <p class="vacio" id="vacio" hidden>No hay trabajadores que coincidan. Registra uno en el formulario.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
