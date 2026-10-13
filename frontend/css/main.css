@@ -1,0 +1,7 @@
+/* Archivo principal de estilos.
+   Todas las pantallas solo enlazan ESTE archivo y con eso
+   se traen los colores y el diseño de todo el sistema. */
+@import url('variables.css');
+@import url('base.css');
+@import url('components.css');
+@import url('portal.css');

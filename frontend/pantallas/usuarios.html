@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de usuarios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Con esta línea se trae TODO el diseño (colores, botones, tablas) -->
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <main class="pantalla">
+    <a class="enlace-volver" href="../index.html">← Menú principal</a>
+    <h1 class="titulo-pantalla">Gestión de usuarios</h1>
+
+    <h2 class="subtitulo-pantalla">FORMULARIO DE USUARIO (Nuevo/Editar)</h2>
+
+    <!-- ========== FORMULARIO ========== -->
+    <section class="tarjeta">
+      <form id="form-usuario" novalidate>
+        <div class="formulario-grid">
+
+          <div class="campo">
+            <label for="nombre">Nombre <span class="obligatorio">*</span></label>
+            <input class="input" type="text" id="nombre" autocomplete="off">
+            <span class="mensaje-error" id="error-nombre"></span>
+          </div>
+
+          <div class="campo">
+            <label for="apPaterno">Apellido paterno <span class="obligatorio">*</span></label>
+            <input class="input" type="text" id="apPaterno" autocomplete="off">
+            <span class="mensaje-error" id="error-apPaterno"></span>
+          </div>
+
+          <div class="campo">
+            <label for="apMaterno">Apellido materno</label>
+            <input class="input" type="text" id="apMaterno" autocomplete="off">
+            <span class="mensaje-error"></span>
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña <span class="obligatorio">*</span></label>
+            <div class="input-con-icono">
+              <input class="input" type="password" id="password" autocomplete="new-password">
+              <!-- el icono lo pone main.js -->
+              <button class="icono-btn" type="button" data-ver-password="password" aria-label="Mostrar u ocultar contraseña"></button>
+            </div>
+            <span class="mensaje-error" id="error-password"></span>
+          </div>
+
+          <div class="campo">
+            <label for="rol">Rol <span class="obligatorio">*</span></label>
+            <select class="select" id="rol">
+              <option value="">Seleccionar...</option>
+              <option value="Administrador">Administrador</option>
+              <option value="RH">RH</option>
+              <option value="Auxiliar Servicio Social">Auxiliar Servicio Social</option>
+            </select>
+            <span class="mensaje-error" id="error-rol"></span>
+          </div>
+
+          <div class="acciones-formulario">
+            <button class="boton boton-secundario" type="button" id="btn-cancelar">Cancelar</button>
+            <button class="boton boton-neutro" type="button" id="btn-limpiar">Limpiar</button>
+            <button class="boton boton-primario" type="submit">Guardar</button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <!-- ========== LISTADO ========== -->
+    <section class="tarjeta">
+      <div class="listado-encabezado">
+        <span class="listado-titulo">LISTADO DE USUARIOS</span>
+        <span class="listado-contador" id="contador">0 resultados</span>
+
+        <div class="listado-buscar">
+          <input class="input" type="search" id="texto-buscar" placeholder="Nombre o rol">
+          <button class="boton boton-claro" type="button" id="btn-buscar">Buscar</button>
+        </div>
+      </div>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th class="col-acciones">Edit</th>
+          </tr>
+        </thead>
+        <!-- las filas las genera usuarios.js -->
+        <tbody id="tabla-usuarios"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/usuarios.js"></script>
+</body>
+</html>
