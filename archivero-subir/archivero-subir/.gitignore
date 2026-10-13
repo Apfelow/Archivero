@@ -1,0 +1,15 @@
+# Python / Django
+__pycache__/
+*.pyc
+venv/
+.venv/
+db.sqlite3
+
+# Variables secretas (contraseñas, llaves)
+.env
+
+# Editor y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
