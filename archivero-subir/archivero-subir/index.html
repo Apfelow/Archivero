@@ -4,66 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Roles</title>
+    <!-- Tu archivo CSS unificado -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<button class="menu-toggle-btn" id="menuToggle" aria-label="Abrir menú">☰</button>
+<!-- BOTÓN Y MENÚ LATERAL FLOTANTE -->
+    <button class="menu-toggle-btn" id="menuToggle" title="Abrir Menú">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<!-- Fondo oscuro difuminado al abrir el menú -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Menú Lateral (Sidebar Flotante) -->
-<aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <div class="user-profile-placeholder">
-            <span class="user-icon">👤</span>
-            <span class="user-placeholder-text">Usuario del Sistema</span>
-        </div>
-        <button class="close-sidebar-btn" id="closeMenu">←</button>
-    </div>
-
-    <div class="sidebar-nav">
-        <!-- Sección Roles -->
-        <div class="nav-section">
-            <div class="nav-section-title">Roles <span class="arrow">▲</span></div>
-            <ul class="nav-sublist">
-                <li><a href="index.html">Registro de roles</a></li>
-            </ul>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile-placeholder">
+                <span class="user-icon">👤</span>
+                <span>Usuario del Sistema</span>
+            </div>
+            <button class="close-sidebar-btn" id="closeMenu" title="Cerrar Menú">←</button>
         </div>
 
-        <!-- Sección Usuarios -->
-        <div class="nav-section">
-            <div class="nav-section-title">Usuarios <span class="arrow">▲</span></div>
-            <ul class="nav-sublist">
-                <li><a href="#">Registro de usuarios</a></li>
-            </ul>
+        <div class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Roles <span>▲</span></div>
+                <ul class="nav-sublist">
+                    <li><a href="index.html">Registro de roles</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Usuarios <span>▲</span></div>
+                <ul class="nav-sublist">
+                    <li><a href="#">Registro de usuarios</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Trabajadores <span>▲</span></div>
+                <ul class="nav-sublist">
+                    <li><a href="#">Registro de trabajadores</a></li>
+                    <li><a href="#">Consulta y reporte</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Documentos <span>▲</span></div>
+                <ul class="nav-sublist">
+                    <li><a href="#">Consulta y reporte</a></li>
+                    <li><a href="#">Registro documentos</a></li>
+                    <li><a href="#">Tipos de documentos</a></li>
+                    <li><a href="prestamo.html">Préstamos</a></li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Sección Trabajadores -->
-        <div class="nav-section">
-            <div class="nav-section-title">Trabajadores <span class="arrow">▲</span></div>
-            <ul class="nav-sublist">
-                <li><a href="#">Registro de trabajadores</a></li>
-                <li><a href="#">Consulta y reporte</a></li>
-            </ul>
+        <div class="sidebar-footer">
+            <button class="btn-cerrar-sesion">Cerrar sesión</button>
         </div>
-
-        <!-- Sección Documentos -->
-        <div class="nav-section">
-            <div class="nav-section-title">Documentos <span class="arrow">▲</span></div>
-            <ul class="nav-sublist">
-                <li><a href="#">Consulta y reporte</a></li>
-                <li><a href="#">Registro documentos</a></li>
-                <li><a href="#">Tipos de documentos</a></li>
-                <li><a href="prestamo.html">Préstamos</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="sidebar-footer">
-        <button class="btn-cerrar-sesion">Cerrar sesión</button>
-    </div>
-</aside>
+    </aside>
     <div class="main-container">
         <h1>Registro de roles</h1>
         <p class="subtitle">Ingresa los datos del nuevo rol</p>
@@ -112,5 +104,6 @@
 
     <!-- Enlace al archivo de lógica JavaScript externo -->
     <script src="CRUDrol.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>
